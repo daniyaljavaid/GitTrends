@@ -1,4 +1,4 @@
-package com.dj.gittrends.data.source.remote.github.di.model
+package com.dj.gittrends.data.source.remote.github.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
