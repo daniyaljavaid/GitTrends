@@ -16,7 +16,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object RetrofitModule {
 
     @Provides
     fun provideRetrofit(
