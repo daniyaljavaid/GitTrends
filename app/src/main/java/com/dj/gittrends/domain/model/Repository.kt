@@ -1,15 +1,10 @@
-package com.dj.gittrends.data.source.local.entity
+package com.dj.gittrends.domain.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity
-internal data class RepositoryEntity(
-    @PrimaryKey
+internal data class Repository(
     val id: Long,
     val name: String,
     val fullName: String,
-    val owner: OwnerEntity,
+    val ownerEntity: Owner,
     val description: String,
     val stargazersCount: Long,
     val watchersCount: Long,
