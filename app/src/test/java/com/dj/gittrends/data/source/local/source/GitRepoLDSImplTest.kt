@@ -3,7 +3,7 @@ package com.dj.gittrends.data.source.local.source
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.dj.gittrends.data.local.dao.RepositoryDao
-import com.dj.gittrends.data.local.source.RepositoryLDSImpl
+import com.dj.gittrends.data.local.source.GitRepoLDSImpl
 import com.dj.gittrends.data.remote.github.fixtures.GithubFixtures
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -19,7 +19,7 @@ import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
 @RunWith(MockitoJUnitRunner::class)
-internal class RepositoryLDSImplTest {
+internal class GitRepoLDSImplTest {
 
     @get:Rule
     val instantExecutorRule = InstantTaskExecutorRule()
@@ -27,12 +27,12 @@ internal class RepositoryLDSImplTest {
     @Mock
     private lateinit var dao: RepositoryDao
 
-    private lateinit var repositoryLDSImpl: RepositoryLDSImpl
+    private lateinit var gitRepoLDSImpl: GitRepoLDSImpl
 
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        repositoryLDSImpl = RepositoryLDSImpl(dao)
+        gitRepoLDSImpl = GitRepoLDSImpl(dao)
     }
 
     @Test
@@ -44,7 +44,7 @@ internal class RepositoryLDSImplTest {
             )
         )
 
-        repositoryLDSImpl.getRepositories().test {
+        gitRepoLDSImpl.getRepositories().test {
             val result = awaitItem()
             verify(dao).getAllRepositories()
             Assert.assertTrue(result.size == 1)
@@ -56,7 +56,7 @@ internal class RepositoryLDSImplTest {
     @Test
     fun `saveRepositories test`() = runTest {
         val repositories = listOf(GithubFixtures.repository)
-        repositoryLDSImpl.saveRepositories(repositories)
+        gitRepoLDSImpl.saveRepositories(repositories)
         verify(dao).reInsertRepositories(repositories)
     }
 }

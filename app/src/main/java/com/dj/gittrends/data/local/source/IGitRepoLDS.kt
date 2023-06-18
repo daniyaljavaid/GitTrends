@@ -3,7 +3,7 @@ package com.dj.gittrends.data.local.source
 import com.dj.gittrends.data.local.entity.RepositoryEntity
 import kotlinx.coroutines.flow.Flow
 
-internal interface IRepositoryLDS {
+internal interface IGitRepoLDS {
 
     fun getRepositories(): Flow<List<RepositoryEntity>>
 

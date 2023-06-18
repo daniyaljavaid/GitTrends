@@ -5,8 +5,8 @@ import com.dj.gittrends.data.local.entity.RepositoryEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-internal class RepositoryLDSImpl @Inject constructor(private val dao: RepositoryDao) :
-    IRepositoryLDS {
+internal class GitRepoLDSImpl @Inject constructor(private val dao: RepositoryDao) :
+    IGitRepoLDS {
 
     override fun getRepositories(): Flow<List<RepositoryEntity>> = dao.getAllRepositories()
     override suspend fun saveRepositories(repositories: List<RepositoryEntity>) {
