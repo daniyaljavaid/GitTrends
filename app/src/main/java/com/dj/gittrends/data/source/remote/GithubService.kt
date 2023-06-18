@@ -1,4 +1,4 @@
-package com.dj.gittrends.data.source.remote.github
+package com.dj.gittrends.data.source.remote
 
 import com.dj.gittrends.data.source.remote.github.model.TrendingRepositoriesResponseDto
 import retrofit2.http.GET

@@ -1,6 +1,6 @@
 package com.dj.gittrends.data.source.remote.github.di
 
-import com.dj.gittrends.data.source.remote.github.GithubService
+import com.dj.gittrends.data.source.remote.GithubService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
