@@ -7,4 +7,6 @@ internal interface IRepositoryLDS {
 
     fun getRepositories(): Flow<List<RepositoryEntity>>
 
+    suspend fun saveRepositories(repositories: List<RepositoryEntity>)
+
 }

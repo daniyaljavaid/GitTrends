@@ -3,7 +3,6 @@ package com.dj.gittrends.data.source.local.source
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.dj.gittrends.data.source.local.dao.RepositoryDao
-import com.dj.gittrends.data.source.mapper.toRepository
 import com.dj.gittrends.data.source.remote.github.fixtures.GithubFixtures
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -51,5 +50,12 @@ internal class RepositoryLDSImplTest {
             Assert.assertTrue(result[0] == repository)
             cancelAndIgnoreRemainingEvents()
         }
+    }
+
+    @Test
+    fun `saveRepositories test`() = runTest {
+        val repositories = listOf(GithubFixtures.repository)
+        repositoryLDSImpl.saveRepositories(repositories)
+        verify(dao).reInsertRepositories(repositories)
     }
 }

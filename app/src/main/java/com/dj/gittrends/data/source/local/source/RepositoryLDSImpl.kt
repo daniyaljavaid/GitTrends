@@ -9,4 +9,7 @@ internal class RepositoryLDSImpl @Inject constructor(private val dao: Repository
     IRepositoryLDS {
 
     override fun getRepositories(): Flow<List<RepositoryEntity>> = dao.getAllRepositories()
+    override suspend fun saveRepositories(repositories: List<RepositoryEntity>) {
+        dao.reInsertRepositories(repositories)
+    }
 }
