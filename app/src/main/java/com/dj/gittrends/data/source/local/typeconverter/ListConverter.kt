@@ -5,12 +5,12 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import java.lang.reflect.Type
-import javax.inject.Inject
 
 internal class ListConverter {
 
-    @Inject
-    lateinit var moshi: Moshi
+    private val moshi: Moshi by lazy {
+        Moshi.Builder().build()
+    }
 
     private val listAdapter: JsonAdapter<List<String>> by lazy {
         val listOfString: Type = Types.newParameterizedType(

@@ -16,6 +16,5 @@ internal object GithubFixtures {
     val trendingRepositoriesResponseDto =
         TrendingRepositoriesResponseDto(1000, listOf(repositoryDto))
 
-
     val repository = repositoryDto.toRepositoryEntity()
 }

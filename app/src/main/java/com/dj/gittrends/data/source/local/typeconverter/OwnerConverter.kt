@@ -4,12 +4,13 @@ import androidx.room.TypeConverter
 import com.dj.gittrends.data.source.local.entity.Owner
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-import javax.inject.Inject
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 internal class OwnerConverter {
 
-    @Inject
-    lateinit var moshi: Moshi
+    private val moshi: Moshi by lazy {
+        Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    }
 
     private val ownerAdapter: JsonAdapter<Owner> by lazy {
         moshi.adapter(Owner::class.java)
