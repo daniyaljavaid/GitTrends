@@ -4,8 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.dj.gittrends.common.ResultState
 import com.dj.gittrends.common.exceptions.HttpException
-import com.dj.gittrends.data.source.remote.GithubService
-import com.dj.gittrends.data.source.remote.github.fixtures.GithubFixtures
+import com.dj.gittrends.data.remote.GithubService
+import com.dj.gittrends.data.remote.github.GithubRDSImpl
+import com.dj.gittrends.data.remote.github.fixtures.GithubFixtures
 import junit.framework.TestCase.assertEquals
 import org.junit.Assert
 import org.junit.Before

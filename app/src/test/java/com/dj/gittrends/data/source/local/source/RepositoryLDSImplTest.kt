@@ -2,8 +2,9 @@ package com.dj.gittrends.data.source.local.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
-import com.dj.gittrends.data.source.local.dao.RepositoryDao
-import com.dj.gittrends.data.source.remote.github.fixtures.GithubFixtures
+import com.dj.gittrends.data.local.dao.RepositoryDao
+import com.dj.gittrends.data.local.source.RepositoryLDSImpl
+import com.dj.gittrends.data.remote.github.fixtures.GithubFixtures
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert

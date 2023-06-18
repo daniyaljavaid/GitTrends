@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.dj.gittrends.data.source.local.database.GithubDatabase
-import com.dj.gittrends.data.source.remote.github.fixtures.GithubFixtures
+import com.dj.gittrends.data.local.dao.RepositoryDao
+import com.dj.gittrends.data.local.database.GithubDatabase
+import com.dj.gittrends.data.remote.github.fixtures.GithubFixtures
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
