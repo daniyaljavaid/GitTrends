@@ -11,4 +11,7 @@ internal interface RepositoryDao : BaseDao<RepositoryEntity> {
 
     @Query("SELECT * FROM repositoryentity")
     fun getAllRepositories(): Flow<List<RepositoryEntity>>
+
+    @Query("DELETE FROM repositoryentity")
+    suspend fun deleteAll()
 }

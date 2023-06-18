@@ -67,4 +67,25 @@ internal class RepositoryDaoTest {
         val results = repositoryDao.getAllRepositories().take(1).first()
         assert(results.size == 3)
     }
+
+
+    @Test
+    @Throws(Exception::class)
+    fun deleteRepositoriesTest() = runTest {
+        val repositories = listOf(
+            GithubFixtures.repository,
+            GithubFixtures.repository.copy(id = 2),
+            GithubFixtures.repository.copy(id = 3)
+        )
+        repositoryDao.insertAll(repositories)
+
+        val results = repositoryDao.getAllRepositories().take(1).first()
+        assert(results.size == 3)
+
+        repositoryDao.deleteAll()
+
+        val resultsAfterDelete = repositoryDao.getAllRepositories().take(1).first()
+        assert(resultsAfterDelete.isEmpty())
+
+    }
 }
