@@ -1,11 +1,10 @@
 package com.dj.gittrends.data.source.local.source
 
-import com.dj.gittrends.domain.model.Repository
+import com.dj.gittrends.data.source.local.entity.RepositoryEntity
 import kotlinx.coroutines.flow.Flow
 
 internal interface IRepositoryLDS {
 
-    fun getRepositories(): Flow<List<Repository>>
-
+    fun getRepositories(): Flow<List<RepositoryEntity>>
 
 }

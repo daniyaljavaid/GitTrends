@@ -48,7 +48,7 @@ internal class RepositoryLDSImplTest {
             val result = awaitItem()
             verify(dao).getAllRepositories()
             Assert.assertTrue(result.size == 1)
-            Assert.assertTrue(result[0] == repository.toRepository())
+            Assert.assertTrue(result[0] == repository)
             cancelAndIgnoreRemainingEvents()
         }
     }
