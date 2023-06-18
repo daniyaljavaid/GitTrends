@@ -1,7 +1,7 @@
 package com.dj.gittrends.data.source.local.typeconverter
 
 import androidx.room.TypeConverter
-import com.dj.gittrends.data.source.local.entity.Owner
+import com.dj.gittrends.data.source.local.entity.OwnerEntity
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -12,18 +12,18 @@ internal class OwnerConverter {
         Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     }
 
-    private val ownerAdapter: JsonAdapter<Owner> by lazy {
-        moshi.adapter(Owner::class.java)
+    private val ownerEntityAdapter: JsonAdapter<OwnerEntity> by lazy {
+        moshi.adapter(OwnerEntity::class.java)
     }
 
     @TypeConverter
-    fun ownerToString(owner: Owner): String {
-        return ownerAdapter.toJson(owner)
+    fun ownerToString(ownerEntity: OwnerEntity): String {
+        return ownerEntityAdapter.toJson(ownerEntity)
     }
 
     @TypeConverter
-    fun stringToOwner(json: String): Owner? {
-        return ownerAdapter.fromJson(json)
+    fun stringToOwner(json: String): OwnerEntity? {
+        return ownerEntityAdapter.fromJson(json)
     }
 
 }

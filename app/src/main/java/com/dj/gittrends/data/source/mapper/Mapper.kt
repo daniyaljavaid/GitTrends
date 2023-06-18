@@ -1,6 +1,6 @@
 package com.dj.gittrends.data.source.mapper
 
-import com.dj.gittrends.data.source.local.entity.Owner
+import com.dj.gittrends.data.source.local.entity.OwnerEntity
 import com.dj.gittrends.data.source.local.entity.RepositoryEntity
 import com.dj.gittrends.data.source.remote.github.model.OwnerDto
 import com.dj.gittrends.data.source.remote.github.model.RepositoryDto
@@ -9,7 +9,7 @@ internal fun RepositoryDto.toRepositoryEntity() = RepositoryEntity(
     id = id,
     name = name,
     fullName = fullName,
-    owner = owner.toOwner(),
+    ownerEntity = owner.toOwnerEntity(),
     description = description,
     stargazersCount = stargazersCount,
     watchersCount = watchersCount,
@@ -17,7 +17,7 @@ internal fun RepositoryDto.toRepositoryEntity() = RepositoryEntity(
     topics = topics,
 )
 
-internal fun OwnerDto.toOwner() = Owner(
+internal fun OwnerDto.toOwnerEntity() = OwnerEntity(
     id = id,
     login = login,
     avatarURL = avatarURL,

@@ -9,7 +9,7 @@ internal data class RepositoryEntity(
     val id: Long,
     val name: String,
     val fullName: String,
-    val owner: Owner,
+    val ownerEntity: OwnerEntity,
     val description: String,
     val stargazersCount: Long,
     val watchersCount: Long,
