@@ -88,4 +88,32 @@ internal class RepositoryDaoTest {
         assert(resultsAfterDelete.isEmpty())
 
     }
+
+    @Test
+    @Throws(Exception::class)
+    fun reInsertRepositoriesTest() = runTest {
+
+        repositoryDao.insertAll(
+            listOf(
+                GithubFixtures.repository,
+                GithubFixtures.repository.copy(id = 2)
+            )
+        )
+
+        val results = repositoryDao.getAllRepositories().take(1).first()
+        assert(results.size == 2)
+
+        repositoryDao.reInsertRepositories(
+            listOf(
+                GithubFixtures.repository,
+                GithubFixtures.repository.copy(id = 2),
+                GithubFixtures.repository.copy(id = 3)
+            )
+        )
+
+        val resultsAfterReInsert = repositoryDao.getAllRepositories().take(1).first()
+        assert(resultsAfterReInsert.size == 3)
+
+    }
+
 }

@@ -2,6 +2,7 @@ package com.dj.gittrends.data.source.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
 import com.dj.gittrends.data.source.local.base.BaseDao
 import com.dj.gittrends.data.source.local.entity.RepositoryEntity
 import kotlinx.coroutines.flow.Flow
@@ -14,4 +15,10 @@ internal interface RepositoryDao : BaseDao<RepositoryEntity> {
 
     @Query("DELETE FROM repositoryentity")
     suspend fun deleteAll()
+
+    @Transaction
+    suspend fun reInsertRepositories(repositories: List<RepositoryEntity>) {
+        deleteAll()
+        insertAll(repositories)
+    }
 }
