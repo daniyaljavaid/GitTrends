@@ -37,7 +37,7 @@ internal fun RepositoryListScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            RequestFailedView()
+            RequestFailedView {}
         }
     }
 }
