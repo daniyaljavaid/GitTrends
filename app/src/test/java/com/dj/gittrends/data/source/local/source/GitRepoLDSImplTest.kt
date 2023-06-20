@@ -37,7 +37,7 @@ internal class GitRepoLDSImplTest {
 
     @Test
     fun `getRepositories test`() = runTest {
-        val repository = GithubFixtures.repository
+        val repository = GithubFixtures.repositoryEntity
         whenever(dao.getAllRepositories()).thenReturn(
             flowOf(
                 listOf(repository)
@@ -55,7 +55,7 @@ internal class GitRepoLDSImplTest {
 
     @Test
     fun `saveRepositories test`() = runTest {
-        val repositories = listOf(GithubFixtures.repository)
+        val repositories = listOf(GithubFixtures.repositoryEntity)
         gitRepoLDSImpl.saveRepositories(repositories)
         verify(dao).reInsertRepositories(repositories)
     }

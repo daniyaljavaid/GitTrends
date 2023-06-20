@@ -41,7 +41,7 @@ internal class RepositoryDaoTest {
     @Test
     @Throws(Exception::class)
     fun insertAllTest() = runTest {
-        val repositories = listOf(GithubFixtures.repository)
+        val repositories = listOf(GithubFixtures.repositoryEntity)
         repositoryDao.insertAll(repositories)
         val results = repositoryDao.getAllRepositories().take(1).first()
         assert(results.size == 1)
@@ -50,7 +50,7 @@ internal class RepositoryDaoTest {
     @Test
     @Throws(Exception::class)
     fun insertAllWithSameIdsTest() = runTest {
-        val repositories = listOf(GithubFixtures.repository, GithubFixtures.repository)
+        val repositories = listOf(GithubFixtures.repositoryEntity, GithubFixtures.repositoryEntity)
         repositoryDao.insertAll(repositories)
         val results = repositoryDao.getAllRepositories().take(1).first()
         assert(results.size == 1)
@@ -60,9 +60,9 @@ internal class RepositoryDaoTest {
     @Throws(Exception::class)
     fun insertAllWithDifferentIdsTest() = runTest {
         val repositories = listOf(
-            GithubFixtures.repository,
-            GithubFixtures.repository.copy(id = 2),
-            GithubFixtures.repository.copy(id = 3)
+            GithubFixtures.repositoryEntity,
+            GithubFixtures.repositoryEntity.copy(id = 2),
+            GithubFixtures.repositoryEntity.copy(id = 3)
         )
         repositoryDao.insertAll(repositories)
         val results = repositoryDao.getAllRepositories().take(1).first()
@@ -74,9 +74,9 @@ internal class RepositoryDaoTest {
     @Throws(Exception::class)
     fun deleteRepositoriesTest() = runTest {
         val repositories = listOf(
-            GithubFixtures.repository,
-            GithubFixtures.repository.copy(id = 2),
-            GithubFixtures.repository.copy(id = 3)
+            GithubFixtures.repositoryEntity,
+            GithubFixtures.repositoryEntity.copy(id = 2),
+            GithubFixtures.repositoryEntity.copy(id = 3)
         )
         repositoryDao.insertAll(repositories)
 
@@ -96,8 +96,8 @@ internal class RepositoryDaoTest {
 
         repositoryDao.insertAll(
             listOf(
-                GithubFixtures.repository,
-                GithubFixtures.repository.copy(id = 2)
+                GithubFixtures.repositoryEntity,
+                GithubFixtures.repositoryEntity.copy(id = 2)
             )
         )
 
@@ -106,9 +106,9 @@ internal class RepositoryDaoTest {
 
         repositoryDao.reInsertRepositories(
             listOf(
-                GithubFixtures.repository,
-                GithubFixtures.repository.copy(id = 2),
-                GithubFixtures.repository.copy(id = 3)
+                GithubFixtures.repositoryEntity,
+                GithubFixtures.repositoryEntity.copy(id = 2),
+                GithubFixtures.repositoryEntity.copy(id = 3)
             )
         )
 

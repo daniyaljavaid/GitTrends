@@ -56,7 +56,7 @@ internal class GithubRepositoryImplTest {
 
         whenever(gitRepoLDS.getRepositories()).thenReturn(
             flow {
-                emit(listOf(GithubFixtures.repository))
+                emit(listOf(GithubFixtures.repositoryEntity))
             }
         )
 
@@ -98,7 +98,7 @@ internal class GithubRepositoryImplTest {
                 emit(listOf())
             },
             flow {
-                emit(listOf(GithubFixtures.repository))
+                emit(listOf(GithubFixtures.repositoryEntity))
             }
         )
 
@@ -130,7 +130,7 @@ internal class GithubRepositoryImplTest {
 
         whenever(gitRepoLDS.getRepositories()).thenReturn(
             flow {
-                emit(listOf(GithubFixtures.repository))
+                emit(listOf(GithubFixtures.repositoryEntity))
             }
         )
 
@@ -143,7 +143,7 @@ internal class GithubRepositoryImplTest {
             )
 
             assertEquals(
-                GithubFixtures.repository.toRepository(),
+                GithubFixtures.repositoryEntity.toRepository(),
                 result.data[0]
             )
 
