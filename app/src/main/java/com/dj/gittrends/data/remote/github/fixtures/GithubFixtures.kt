@@ -1,5 +1,6 @@
 package com.dj.gittrends.data.remote.github.fixtures
 
+import com.dj.gittrends.data.mapper.toRepository
 import com.dj.gittrends.data.mapper.toRepositoryEntity
 import com.dj.gittrends.data.remote.github.model.OwnerDto
 import com.dj.gittrends.data.remote.github.model.RepositoryDto
@@ -17,4 +18,6 @@ internal object GithubFixtures {
         TrendingRepositoriesResponseDto(1000, listOf(repositoryDto))
 
     val repositoryEntity = repositoryDto.toRepositoryEntity()
+
+    val repository = repositoryDto.toRepositoryEntity().toRepository()
 }
