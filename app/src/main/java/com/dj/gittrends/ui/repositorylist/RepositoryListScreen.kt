@@ -1,6 +1,6 @@
 package com.dj.gittrends.ui.repositorylist
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -33,11 +33,17 @@ internal fun RepositoryListScreen(
     ) {
         it
 
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            RequestFailedView {}
+            RepositoryListView(
+//                loading = repositoryListUiState is RepositoryListUiState.Loading,
+                data = (repositoryListUiState as? RepositoryListUiState.GetRepositoriesSuccess)?.data
+                    ?: listOf()
+            )
+            if (repositoryListUiState is RepositoryListUiState.Error)
+                RequestFailedView {}
         }
     }
 }
